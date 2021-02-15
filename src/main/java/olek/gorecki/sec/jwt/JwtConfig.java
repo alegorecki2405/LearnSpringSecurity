@@ -1,5 +1,6 @@
 package olek.gorecki.sec.jwt;
 
+import com.google.common.net.HttpHeaders;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "application.jwt")
@@ -33,5 +34,9 @@ public class JwtConfig {
 
     public void setTokenExpirationAfterDays(Integer tokenExpirationAfterDays) {
         this.tokenExpirationAfterDays = tokenExpirationAfterDays;
+    }
+
+    public String getAuthorization() {
+        return HttpHeaders.AUTHORIZATION;
     }
 }
